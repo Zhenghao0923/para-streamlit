@@ -8,6 +8,7 @@ from langchain.chains import LLMChain
 import time
 
 API_KEY=os.environ['OPENAI_API_KEY']
+prompt_key=os.environ['prompt_key']
 # if"openai_mode" not in st.session_state:
 #     st.session_state["openai_model"] ="gpt-3.5-turbo"
 
@@ -47,7 +48,7 @@ st.title("转述-Paraphrase")
 llm=OpenAI(openai_api_key=API_KEY, temperature=0.9)
 
 para_prompt_template=PromptTemplate(
-    template="使用类似的专业术语和语气,针对下面的内容进行改写{texts}",
+    template=prompt_key+"{texts}",
     input_variables=['texts']
 )
 user_input=st.text_input("提供需要复述的段落")
@@ -56,7 +57,7 @@ para_chain=LLMChain(
     prompt=para_prompt_template,
     verbose=True
 )
-if st.button("生成") and user_input:
+if st.button("生成转写") and user_input:
     
     with st.status("上传段落……"):
         st.write("理解文意……")
