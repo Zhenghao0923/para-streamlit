@@ -45,7 +45,7 @@ st.title("转述-Paraphrase")
 #         message_placeholder.markdown(full_response)
 #     st.session_state.messages.append({"role":"assistant","content":full_response})
 
-llm=OpenAI(openai_api_key=API_KEY, temperature=0.9)
+llm=OpenAI(openai_api_key=API_KEY, temperature=1.5)
 
 para_prompt_template=PromptTemplate(
     template=prompt_key+"{texts}",
