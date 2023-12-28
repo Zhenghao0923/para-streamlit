@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(
     page_title="mult"
 )
-st.title("main page")
+st.title("用户中心")
 st.sidebar.success("select your page")
 
 #to get input from user
