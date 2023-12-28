@@ -1,7 +1,11 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="mult"
+    page_title="mult",
+    menu_items={
+        "About":"This is an experimental page",
+        "Get Help":"click here to get help",
+    }
 )
 st.title("用户中心")
 st.sidebar.success("select your page")
